@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Atelier Yamato Schedule",
+  "name_for_model": "schedule_api",
+  "description_for_human": "ひろくんの Google カレンダーから予定を取得して解析するプラグインです。",
+  "description_for_model": "Retrieves and returns a list of events for a given time range from Atelier Yamato Google Calendar.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://studioyamato.github.io/schedule-plugin/openapi2.json"
+  },
+  "logo_url": "https://studioyamato.github.io/schedule-plugin/logo.png",
+  "contact_email": "studioyamato7@gmail.com",
+  "legal_info_url": "https://studioyamato.github.io/schedule-plugin/privacy.html"
+}
