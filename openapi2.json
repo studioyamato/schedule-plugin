@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://script.google.com/macros/s/AKfycbzHp1GJn19QFR36Kj9enAj3lHP8LTn3R9f8IWLQZ6d44u5gS9f80gCIB87r1vIYRy0Rcw/exec?apiKey=s3cr3tT0k3n!AbC123xyz"
+      "url": "https://script.google.com/macros/s/AKfycbzHp1GJn19QFR36Kj9enAj3lHP8LTn3R9f8IWLQZ6d44u5gS9f80gCIB87r1vIYRy0Rcw/exec"
     }
   ],
   "paths": {
@@ -16,6 +16,13 @@
         "operationId": "getSchedule",
         "summary": "指定期間の予定取得",
         "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "GAS 側で設定したシークレット API キー"
+          },
           {
             "name": "timeMin",
             "in": "query",
@@ -49,11 +56,11 @@
                     "type": "object",
                     "properties": {
                       "calendarId":   { "type": "string" },
-                        "calendarName": { "type": "string" },
-                        "summary":      { "type": "string" },
-                        "description":  { "type": "string" },
-                        "start":        { "type": "string" },
-                        "end":          { "type": "string" }
+                      "calendarName": { "type": "string" },
+                      "summary":      { "type": "string" },
+                      "description":  { "type": "string" },
+                      "start":        { "type": "string" },
+                      "end":          { "type": "string" }
                     }
                   }
                 }
