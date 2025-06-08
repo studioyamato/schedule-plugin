@@ -1,0 +1,74 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Atelier Yamato Schedule API",
+    "version": "1.0.0",
+    "description": "Google カレンダーから予定を取得するエンドポイント"
+  },
+  "servers": [
+    {
+      "url": "https://script.google.com/macros/s/AKfycbwuePlQBJGJPrjA1TkW_ldmrADoUanQ5gfPeawJwTTpgib-oQS0ObKsOhMWK9YwLRKVwg/exec"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getSchedule",
+        "summary": "指定期間の予定取得",
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "GAS 側で設定したシークレット API キー"
+          },
+          {
+            "name": "timeMin",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "format": "date-time" },
+            "description": "開始日時（UTC RFC3339）"
+          },
+          {
+            "name": "timeMax",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "format": "date-time" },
+            "description": "終了日時（UTC RFC3339）"
+          },
+          {
+            "name": "maxItems",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "default": 100 },
+            "description": "最大取得件数（省略可）"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "イベント配列を返却",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "calendarId":   { "type": "string" },
+                      "calendarName": { "type": "string" },
+                      "summary":      { "type": "string" },
+                      "description":  { "type": "string" },
+                      "start":        { "type": "string" },
+                      "end":          { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
